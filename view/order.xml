@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_booking_tree" model="ir.ui.view">
+        <field name="name">product.booking.tree</field>
+        <field name="model">booking.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name='order_id' />
+                <field name='date' />
+                <field name='user_name' />
+                <field name='phone' />
+                <field name='village' />
+                <field name='city' />
+                <field name='state' />
+                <field name='country' />
+                <field name='zip' />
+            </tree>
+        </field>
+    </record>
+    <record id="product_booking_form" model="ir.ui.view">
+        <field name="name">product.booking.form</field>
+        <field name="model">booking.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="help_to_delivery" class="oe_highlight" 
+                        string="Conform Delivery" type="object" attrs="{'invisible': [('status',  '=', 'Order delivered')]}" />
+                    <field name='status' widget="statusbar" class="oe_highlight" />
+                </header>
+                <sheet>
+                    <group string="User Detail">
+                        <group>
+                            <field name='user_name' />
+                            <field name='date' />
+                            <field name='phone' />
+                            <field name='email' />
+
+                        </group>
+                        <group>
+                            <field name='h_no' />
+                            <field name='city' />
+                            <field name='state' />
+                            <field name='country' />
+                            <field name='zip' />
+                        </group>
+                        <field name='Total_amount' />
+                    </group>
+                    <notebook>
+                        <page string="Product Detail">
+                            <field name='product' />
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="booking_action" model="ir.actions.act_window">
+        <field name="name">Order</field>
+        <field name="res_model">booking.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

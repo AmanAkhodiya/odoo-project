@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="form_user" name="form">
+        <head>
+            <Title>user form</Title>
+            <link rel="stylesheet" href="./css/style.css" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link rel="stylesheet"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+            <style>
+                .dropdown {
+                margin-bottom: 10px;}
+            </style>
+        </head>
+        <body style="background-color:#FCF6F5">
+            <div class="container"
+                style="margin-left:23%;background-color:#FCF6F5;width:50%;margin-top: 9%;">
+
+                <div class="contact-box"
+                    style="background-color:#FEE715;border-radius:30px;  height: 70%;">
+                    <div class="contact-left">
+                        <br>
+                        </br>
+                        <h6 id="return"></h6>
+                        <br>
+                        </br>
+                        <form id="myForm" style="margin-left:5%;margin-top: -43px;" role="form"
+                            action="/website/fresh/order" method="POST">
+                            <input type="hidden" name="csrf_token"
+                                t-att-value="request.csrf_token()" />
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label>Name</label>
+                                    <input style="margin-left:25px;margin-top:10px" name="name"
+                                        id="name" t-att-value="name" type="text"
+                                        placeholder="John Smith " />
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Phone</label>
+                                <input style="margin-left:20px;margin-top:10px" name="phoneNo"
+                                    id="phoneNo" type="number" placeholder="+1 9876543210 " />
+                            </div>
+                            <div class="input-group">
+                                <label>Email</label>
+                                <input style="margin-left:25px;margin-top:10px" name="email"
+                                    id="email" type="email" placeholder="johnsmith@example.com" />
+                            </div>
+                            <div class="input-group">
+                                <label>H.no</label>
+                                <input style="margin-left:31px;margin-top:10px" name="house"
+                                    id="house" type="number" placeholder="123" />
+                            </div>
+                            <div class="input-group">
+                                <label>Village</label>
+                                <input style="margin-left:17px;margin-top:10px" name="village"
+                                    id="village" type="text" placeholder="chindori" />
+                            </div>
+                            <div class="input-group">
+                                <label>City</label>
+                                <input style="margin-left:35px;margin-top:10px" name="city"
+                                    id="city" type="text" placeholder="Meerut" />
+                            </div>
+                            <div class="input-group">
+                                <label>State</label>
+                                <input style="margin-left:26px;margin-top:10px" name="state"
+                                    id="state" type="text" placeholder="UP" />
+                            </div>
+                             <div class="input-group">
+                                <label>Country</label>
+                                <input style="margin-left:6px;margin-top:10px" name="country"
+                                    id="country" type="text" placeholder="india" />
+                            </div>
+                            <div class="input-group">
+                                <label>PIN</label>
+                                <input style="margin-left:37px;margin-top:10px" name="zip"
+                                    id="zip" type="number" placeholder="123" />
+                            </div>
+                            <div class="input-group"
+                                style="margin-left:5px;margin-top:11px;width: 55rem;">
+                                <label>
+                                    <input type="radio" id="payment" name="payment" />
+                                </label>
+                                <strong>
+                                    <span style="margin-left:5px">Cash on delivery</span>
+                                </strong>
+                            </div>
+
+                            <br></br>
+
+
+                            <button
+                                style="margin-left:449px;background-color:green;border-radius:10px;color:white;width:85px;margin-top:-15px;"
+                                type="submit">
+                                Order</button>
+
+
+                        </form>
+                            <a t-attf-href="/website/fresh/cart/detail">
+                            <button
+                                style="background-color:red;border-radius:10px;color:white;width:85px;  margin-top: -48px;margin-left: 34px;"
+                                action="/website/fresh/cart/detail">
+                                Back</button></a>
+                        
+
+
+                    </div>
+                </div>
+            </div>
+            <script>
+
+
+                $(document).ready(function(){
+                $("#myForm").on('submit',function(event){
+                event.preventDefault();
+                var f = $(this).serialize();
+                $.ajax({
+                url: "ContactServlet",
+                data: f,
+                type: 'POST',
+                success: function(data,textStatus,jqXHR){
+                if(data.trim()==='done'){
+                $('#return').html("Thanks for submitted your contact detail");
+                }
+                else{
+                $('#return').html("Something went wrong, Please try again later");
+                }
+                },
+                error: function(jqXHR,textStatus,errorThrown){
+                $('#return').html("Something went wrong, Please try again later");
+                }
+                });
+
+                });
+                });
+
+
+            </script>
+
+        </body>
+
+    </template>
+
+</odoo>

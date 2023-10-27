@@ -1,0 +1,27 @@
+{
+    'name': 'Fresh Shoppers',
+    'version': '1.0',
+    'category': 'website',
+    'description': "A Vegitable website for daily use ",
+    'depends': ['base','mail'],
+    'data': [
+        'view/order.xml',
+        'view/cart.xml',
+        'view/product.xml',
+        'view/aboutus_temp.xml',
+        'view/contact_temp.xml',
+        'view/form_temp.xml',
+        'view/cart_detail_temp.xml',
+        'view/order_conform_temp.xml',
+        'view/sequence.xml',
+        'report/order_repo.xml',
+        "view/order_delivered_email.xml",
+        'view/order _received_email.xml',
+        'view/empty_cart_temp.xml',
+        'view/web_template.xml',
+        'security/ir.model.access.csv',
+        'demo/Product_demo.xml',
+
+    ],
+    'installable': True,
+}

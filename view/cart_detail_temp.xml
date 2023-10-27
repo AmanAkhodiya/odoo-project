@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cart_detail" name="Cart Detail">
+        <head>
+            <link rel="stylesheet"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+            <style>
+                @keyframes color {
+                0% { background: #33CCCC; }
+                20% { background: #33CC36; }
+                40% { background: #B8CC33; }
+                60% { background: #FCCA00; }
+                80% { background: #33CC36; }
+                100% { background: #33CCCC; }
+                }
+
+                .animate{
+                background: #33CCCC; /* Fallback */
+                animation: color 9s infinite linear;
+                text-align: center;
+                padding: 2em;
+                }
+
+                /* Cool infinite background scrolling animation.
+                * Twitter: @kootoopas
+                */
+                /* Exo thin font from Google. */
+                @import url(https://fonts.googleapis.com/css?family=Exo:100);
+                /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+                /* Animations */
+                @-webkit-keyframes bg-scrolling-reverse {
+                100% {
+                background-position: 50px 50px;
+                }
+                }
+                @-moz-keyframes bg-scrolling-reverse {
+                100% {
+                background-position: 50px 50px;
+                }
+                }
+                @-o-keyframes bg-scrolling-reverse {
+                100% {
+                background-position: 50px 50px;
+                }
+                }
+                @keyframes bg-scrolling-reverse {
+                100% {
+                background-position: 50px 50px;
+                }
+                }
+                @-webkit-keyframes bg-scrolling {
+                0% {
+                background-position: 50px 50px;
+                }
+                }
+                @-moz-keyframes bg-scrolling {
+                0% {
+                background-position: 50px 50px;
+                }
+                }
+                @-o-keyframes bg-scrolling {
+                0% {
+                background-position: 50px 50px;
+                }
+                }
+                @keyframes bg-scrolling {
+                0% {
+                background-position: 50px 50px;
+                }
+                }
+                /* Main styles */
+                body {
+                margin-top: 13.5rem;
+                color: #999;
+                font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+                text-align: center;
+                /* img size is 50x50 */
+                background:
+                url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC")
+                repeat 0 0;
+                -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+                /* Safari 4+ */
+                -moz-animation: bg-scrolling-reverse 0.92s infinite;
+                /* Fx 5+ */
+                -o-animation: bg-scrolling-reverse 0.92s infinite;
+                /* Opera 12+ */
+                animation: bg-scrolling-reverse 0.92s infinite;
+                /* IE 10+ */
+                -webkit-animation-timing-function: linear;
+                -moz-animation-timing-function: linear;
+                -o-animation-timing-function: linear;
+                animation-timing-function: linear;
+                }
+                body::before {
+                font-size: 8rem;
+                font-weight: 100;
+                font-style: normal;
+                }
+            </style>
+        </head>
+        <body>
+
+
+            <div class="container" style="margin-top:-136px">
+
+
+                <t t-foreach="detail" t-as="s">
+                    
+                        <div class="row" style="border:2px solid #D3D3D3;">
+                            <div class="col-md-4">
+                                <div class="card " style="width:100%;height:40%;">
+                                    <div class="text-center">
+                                        <img t-attf-src="data:image/*;base64,{{s.image}}"
+                                            width="50%" class="img-fluid" alt="Responsive image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center"
+                                    style="font-size:30px;font-family:Cursive;color:red;margin-top:40px">
+                                    <strong>
+                                        <t t-esc='s.name' />
+                                    </strong>
+                                </div>
+                                <div class="text-center"
+                                    style="font-size:20px;font-style:italic;">
+                                    <label>
+                                        <strong>
+                                            Price:
+                                        </strong>
+                                        <t t-esc='s.price' />
+                                    </label>
+                                    <span>/-</span>
+
+                                    <a t-attf-href="/website/fresh/cart/delete/{{s.id}}">
+                                        <button
+                                            style="background-color:red;color:white;border:1px solid red;">
+                                            REMOVE</button>
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    
+                </t>
+                
+                    <t t-foreach="detail" t-as="d"/>
+                        
+                            <div class="card animate "
+                                style="width=100%;height:30%;margin-top:10px;border:5px solid black">
+
+
+                                <label style='color:black;font-size:30px;'>
+
+                                    <strong>Total Amount=</strong>
+                                    <t t-esc="d.Total_amount" />
+                                </label>
+                                <span style='color:black;font-size:30px;'>/-</span>
+
+                                <br></br>
+
+
+                                <a t-attf-href="/website/fresh/form">
+                                    <button
+                                        style="background-color:red;color:white;border:1px solid red;width:90px;font-size:20px;">
+                                        BUY</button>
+                                </a>
+
+
+                            </div>
+                        
+                    
+                
+
+
+            </div>
+
+        </body>
+    </template>
+</odoo>

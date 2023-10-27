@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_template_delivery_confirmation" model="mail.template">
+            <field name="name">Delivery Confirmation Email</field>
+            <field name="subject">Order Delivery Confirmation</field>
+            <field name="model_id" ref="fresh_shoppers.model_booking_product"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_from">order@shoppers.com</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="report_template" ref="report_booking_product"/>
+            <field name="subject">Order Delivered</field>
+            <field name="body_html">
+                <![CDATA[ 
+                <div>
+                    <p>Dear <t t-out="object.user_name" />,</p>
+                    <p>Your order with Order no-<t t-out="object.order_id" /> has been successfully
+                        delivered.</p>
+                </div>
+                <p>Regards,</p>
+                <p>Fresh Shoppers</p>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

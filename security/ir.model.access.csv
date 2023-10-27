@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_manager_1,shopping_product,model_shopping_product,,1,1,1,1
+access_manager_2,booking_product,model_booking_product,,1,1,1,1
+access_manager_3,cart_product,model_cart_product,,1,1,1,1
+

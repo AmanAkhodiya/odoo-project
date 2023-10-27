@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_demo_1" model="shopping.product">
+            <field name="name">Apple</field>
+            <field name="price">60</field>
+            <field name="category">Fruits</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/Fresh-Apple.jpeg"/>
+        </record>
+        <record id="product_demo_2" model="shopping.product">
+            <field name="name">Onion</field>
+            <field name="price">20</field>
+            <field name="category">Vegetables</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/onion 2.jpeg"/>
+        </record>
+        <record id="product_demo_10" model="shopping.product">
+            <field name="name">Blue Berry</field>
+            <field name="price">50</field>
+            <field name="category">Fruits</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/blue1.png"/>
+        </record>
+        <record id="product_demo_3" model="shopping.product">
+            <field name="name">Coriander</field>
+            <field name="price">20</field>
+            <field name="category">Vegetables</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/coriander.jpg"/>
+        </record>
+        <record id="product_demo_4" model="shopping.product">
+            <field name="name">Capsicum Green</field>
+            <field name="price">40</field>
+            <field name="category">Vegetables</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/capsicum-green.jpg"/>
+        </record>
+        <record id="product_demo_11" model="shopping.product">
+            <field name="name">Potato</field>
+            <field name="price">25</field>
+            <field name="category">Vegetables</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/potato.jpg"/>
+        </record>
+        <record id="product_demo_9" model="shopping.product">
+            <field name="name">Orange</field>
+            <field name="price">45</field>
+            <field name="category">Fruits</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/orange.jpeg"/>
+        </record>
+        <record id="product_demo_6" model="shopping.product">
+            <field name="name">Tomato</field>
+            <field name="price">20</field>
+            <field name="category">Vegetables</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/—Pngtree—tomato plant food vegetables_6370269.png"/>
+        </record>
+        <record id="product_demo_7" model="shopping.product">
+            <field name="name">Strawberry</field>
+            <field name="price">80</field>
+            <field name="category">Fruits</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/strawberry.jpg"/>
+        </record>
+        <record id="product_demo_8" model="shopping.product">
+            <field name="name">Mango</field>
+            <field name="price">100</field>
+            <field name="category">Fruits</field>
+            <field name="image" type="base64" file="fresh_shoppers/static/src/img/mango.jpeg"/>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <template id="my_module_order_confirmation" name="Order Confirmation">
+            
+        <t t-set="page_title" t-value="'Order Confirmation'"/>
+        <t t-foreach="new_rec" t-as="order">
+        <div class="container">
+        <a t-attf-href="/website/fresh/home/page">HOME</a>
+            <h1>Order Confirmation</h1>
+            <p>Thank you for placing your order!</p>
+            
+            <div class="order-details">
+                <h3>Order Information</h3>
+                <p>Order ID:<t t-esc="order.order_id"/></p>
+                <p>Date:<t t-esc="order.date"/></p>
+                <p>Total Amount: <t t-esc="order.Total_amount"/></p>
+            </div>
+            
+            <div class="shipping-details">
+                <h3>Shipping Address</h3>
+                <p><t t-esc="order.user_name"/></p>
+                <p><t t-esc="order.h_no"/></p>
+                <p><t t-esc="order.village"/></p>
+                <p><t t-esc="order.city"/>, <t t-esc="order.state"/> <t t-esc="order.zip"/></p>
+                <p><t t-esc="order.country"/></p>
+            </div>
+        
+        </div>
+        </t>
+        
+    
+        </template>
+    </data>
+</odoo>

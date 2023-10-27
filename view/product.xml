@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="web_product_tree" model="ir.ui.view">
+        <field name="name">web.product.tree</field>
+        <field name="model">shopping.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name='name' />
+                <field name='price' />
+                <field name='category'/>
+            </tree>
+        </field>
+    </record>
+    <record id="web_product_form" model="ir.ui.view">
+        <field name="name">web.product.form</field>
+        <field name="model">shopping.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet> 
+                    <group string='Product Detail'>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <field name='name' />
+                        <field name='price' />
+                        <field name='category' />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="web_product_kanban" model="ir.ui.view">
+        <field name="name">web.product.kanban</field>
+        <field name="model">shopping.product</field>
+        <field name="arch" type="xml">
+            <kanban class="school_student_view">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <field name='image' />
+                            <field name='name' />
+                            <field name='price' />
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="product_action" model="ir.actions.act_window">
+        <field name="name">product</field>
+        <field name="res_model">shopping.product</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="shopping_menu" name="Fresh Shoppers" sequence="0" />
+    <menuitem id="product_shop" name="Product" parent="shopping_menu" action="product_action"
+        sequence="0" />
+    <menuitem id="booking_id" name="Order" parent="shopping_menu" action="booking_action"
+        sequence="0" />
+    <menuitem id="cart_id" name="Cart" parent="shopping_menu" action="cart_action"
+        sequence="0" />
+
+
+</odoo>

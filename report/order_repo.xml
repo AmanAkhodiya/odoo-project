@@ -1,0 +1,115 @@
+<odoo>
+    <data>
+        <report
+            id="report_booking_product"
+            model="booking.product"
+            string="Product Detail Report"
+            report_type="qweb-pdf"
+            name="fresh_shoppers.report_product_detail"
+            file="fresh_shoppers.report_product_detail"
+        />
+        
+        <template id="report_product_detail">
+            <t t-call="web.html_container">
+                <div class="company-details">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                            <h2 style="color:black;font-family: Georgia, serif;"><center><strong><u>FRESH SHOPPERS</u></strong></center></h2>
+                                <div
+                                    style="display: flex; display: -webkit-box; -webkit-box-pack: center; justify-content: center;">
+                                    <div style=" flex: 1; -webkit-box-flex: 1; -webkit-flex: 1;">
+                                    
+                                        <p>
+                                            <strong>Order NO:</strong>
+                                            <span t-field="o.order_id" />
+                                        </p>
+                                        <p>
+                                            <strong>Name:</strong>
+                                            <span t-field="o.user_name" />
+                                        </p>
+                                        <p>
+                                            <strong>Phone Number:</strong>
+                                            <span t-field="o.phone" />
+                                        </p>
+
+                                        <p>
+                                            <strong>Email:</strong>
+                                            <span t-field="o.email" />
+                                        </p>
+                                        <p>
+                                            <strong>House No:</strong>
+                                            <span t-field="o.h_no" />
+                                        </p>
+                                        <p>
+                                            <strong>Village:</strong>
+                                            <span t-field="o.village" />
+                                        </p>
+                                    </div>
+                                    <div style="flex: 1; -webkit-box-flex: 1; -webkit-flex: 1;">
+
+                                        <p>
+                                            <strong>City: </strong>
+                                            <span t-field="o.city" />
+                                        </p>
+                                        <p>
+                                            <strong>State:</strong>
+                                            <span t-field="o.state" />
+                                        </p>
+                                        <p>
+                                            <strong>Country:</strong>
+                                            <span t-field="o.country" />
+                                        </p>
+
+                                        <p>
+                                            <strong>Pin:</strong>
+                                            <span t-field="o.zip" />
+                                        </p>
+                                        <p>
+                                            <strong>Date:</strong>
+                                            <span t-field="o.date" />
+                                        </p>
+                                    </div>
+                                </div>
+                                <table style="border:1px solid black;width:100%;">
+                                    <tr style="background-color:black;width:30%;color:white;height:20%">
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                    </tr>
+                                    <t t-foreach="o.product" t-as="v">
+                                    <tr style="1px solid black;width:10%;height:20%">
+                                        <td style="border:1px solid black">
+                                            <span t-field="v.name" />
+                                        </td>
+                                        <td style="border:1px solid black">
+                                            <span t-field="v.category" />
+                                        </td>
+                                        <td style="border:1px solid black">
+                                            <span t-field="v.price" /><span>/-</span>
+                                        </td>
+                                    </tr>
+                                    </t>
+                                </table>
+                                <table style="border:1px solid black;width:100%;">
+                                    
+                                    <tr style="1px solid black;width:30%;height:20%">
+                                        <td style="border:1px solid black">
+                                            TOATAL AMOUNT
+                                        </td>
+                                        <td style="border:1px solid black;width:21.5%;">
+                                            <span t-field="o.Total_amount" /><span>/-</span>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                                
+                                <!-- <p>Total Amount: <span t-field="o.Total_amount" /></p> -->
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
