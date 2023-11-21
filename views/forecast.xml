@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vendor_forecast_tree" model="ir.ui.view">
+        <field name="name">vendor.forecast.tree</field>
+        <field name="model">vendor.forecast</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name='product_id'/>
+                <field name='expected_quantity' />
+                <field name='forecast_date' />
+            </tree>
+        </field>
+    </record>
+    <record id="vendor_forecast_form" model="ir.ui.view">
+        <field name="name">vendor.forecast.form</field>
+        <field name="model">vendor.forecast</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string='Forecast Viewing Functionality'></group>
+                    <div class="oe_title">
+                        <label for="product_id" string="product_id"/>
+                        <h1>
+                            <field name="product_id" placeholder="e.g. P12342AB" required="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name='expected_quantity'/>
+                        <field name='forecast_date' placeholder="e.g. 23/05/2020"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_forecast" model="ir.actions.act_window">
+        <field name="name">Forecast Viewing Functionality</field>
+        <field name="res_model">vendor.forecast</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="ven_portal_menu" name="Vendor Self Service Portal" sequence="0" />
+    <menuitem id="forecast_id" name="Forecast Viewing Functionality" parent="ven_portal_menu"
+        action="action_forecast"
+        sequence="0" />
+    <menuitem id="request_adjustment_id" name="Order Adjustment Request Submission"
+        parent="ven_portal_menu" action="action_adjustment_request"
+        sequence="0" />
+</odoo>

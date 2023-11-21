@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_forecast,vendor_forecast,model_vendor_forecast,vendor_self_service_vendors,1,0,0,0
+access_adjustment_request,vendor_adjustment_request,model_vendor_adjustment_request,vendor_self_service_vendors,1,1,1,1
+

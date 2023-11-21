@@ -1,0 +1,24 @@
+<odoo>
+    <record model="ir.module.category" id="vendor_service_id">
+
+        <field name="name">Vendor self Service Portal</field>
+
+        <field name="description">User access level for Vendor self Service Portal module</field>
+
+        <field name="sequence">20</field>
+
+    </record>
+    <record id="vendor_self_service_vendors" model="res.groups">
+
+        <field name="name">vendors</field>
+
+        <field name="category_id" ref="vendor_service_id" />
+
+    </record>
+    <!-- <record id = "fleet_rule_vehicle_visibility_user" model = "ir.rule"> 
+        <field name = "name"> User can only see his / her vehicle </field> 
+        <field name = "model_id" ref = "model_fleet_vehicle" /> 
+        <field name = "groups" eval = "[(4, ref ('fleet_group_user'))]" />  
+        <field name = "domain_force"> [('driver_id', '=', user.partner_id.id)] </field> 
+     </record> -->
+</odoo>

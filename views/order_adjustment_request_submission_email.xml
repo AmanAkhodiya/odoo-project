@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="id_order_adjustment_request_submission" model="mail.template">
+            <field name="name">Order Adjustment Request Submission Email</field>
+            <field name="subject">Request For Order Adujstment</field>
+            <field name="model_id" ref="Vendor_Self_Service_Portal.model_vendor_adjustment_request"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_from">{{object.email}}</field>
+            <field name="email_to">demo@fatmug.com</field>
+            <field name="body_html">
+                <![CDATA[ 
+                <div>
+                    <h6>Dear,</h6>
+                    
+                        <p style=margin-left:27px;>Fatmug Designs procurement team.</p>
+                    <p>A new message has been received from the <t t-out="object.order_id.partner_id" /></p>
+                    <p><strong>Order Id:</strong><t t-out="object.order_id" /></p>
+                    <P><strong>Adjustment Detail:</strong><t t-out="object.adjustment_detail" /></p>
+                        <p>Message:</p>
+                        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+                            ${object.comment}
+                        </div>
+                </div>
+                <p>Thank you,</p>
+                <p>Fatmug</p>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>
